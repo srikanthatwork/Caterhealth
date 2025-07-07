@@ -218,7 +218,7 @@ const HomePage = () => {
               Our most popular probiotics loved by thousands
             </p>
           </div>
-          {/* <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {bestSellers.map((product) => (
               <div
                 key={product.id}
@@ -283,76 +283,12 @@ const HomePage = () => {
                 </div>
               </div>
             ))}
-          </div> */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center">
-            {bestSellers.map((product) => (
-              <div
-                key={product.id}
-                className="w-[240px] mx-auto bg-white rounded-xl border border-gray-200 
-                 shadow-sm hover:shadow-md transition-shadow overflow-hidden"
-              >
-                {/* Image & Badge */}
-                <div className="relative">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-[200px] object-cover"
-                  />
-                  {product.badge && (
-                    <span className="absolute top-3 left-3 bg-yellow-400 text-white text-sm font-semibold px-2.5 py-1 rounded-full">
-                      {product.badge}
-                    </span>
-                  )}
-                </div>
-
-                {/* Product Info */}
-                <div className="p-4">
-                  {/* Title */}
-                  <h3 className="text-lg font-semibold text-gray-900 leading-snug mb-1">
-                    {product.name}
-                  </h3>
-
-                  {/* Rating */}
-                  <div className="flex items-center mb-3">
-                    <div className="flex">
-                      {[...Array(5)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className={`w-4 h-4 ${
-                            i < Math.floor(product.rating)
-                              ? "text-yellow-400 fill-current"
-                              : "text-gray-300"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <span className="ml-2 text-sm text-gray-600">
-                      {product.rating} ({product.reviews} reviews)
-                    </span>
-                  </div>
-
-                  {/* Price & Button */}
-                  <div className="flex flex-col items-start gap-3 mt-4">
-                    <span className="text-xl font-bold text-red-600">
-                      ₹{product.price}
-                    </span>
-                    <div className="flex items-center">
-                      <button
-                        onClick={() => addToCart(product)}
-                        className="bg-red-600 hover:bg-red-700 text-white font-semibold text-sm 
-               w-[208px] h-[40px] rounded-lg mr-5"
-                      >
-                        Add to Cart
-                      </button>
-                      {/* another button or element here */}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
+         
         </div>
       </section>
+
+
 
       {/* CTA Section */}
       <section className="py-16 bg-red-600 text-white">

@@ -103,7 +103,7 @@ const Header = () => {
                     <div
                       className="relative"
                       onMouseEnter={() => setIsProductsDropdownOpen(true)}
-                      onMouseLeave={() => setIsProductsDropdownOpen(false)}
+                      // onMouseLeave={() => setIsProductsDropdownOpen(false)}
                     >
                       <button
                         className={`flex items-center space-x-2 px-6 py-4 text-sm font-bold transition-all duration-300 rounded-xl border-2 border-transparent hover:border-red-200 hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 hover:text-red-700 hover:shadow-lg hover:scale-105 group ${
@@ -127,7 +127,10 @@ const Header = () => {
 
                       {/* Dropdown Menu */}
                       {isProductsDropdownOpen && (
-                        <div className="absolute top-full left-0 mt-3 w-72 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-red-100 py-4 z-50 transform transition-all duration-300 animate-in slide-in-from-top-2">
+                        <div
+                          className="absolute top-full left-0 mt-3 w-72 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-red-100 py-4 z-50 transform transition-all duration-300 animate-in slide-in-from-top-200"
+                          onMouseLeave={() => setIsProductsDropdownOpen(false)}
+                        >
                           {/* Dropdown Header */}
                           <div className="px-6 py-3 border-b border-gray-100">
                             <h3 className="text-sm font-bold text-gray-900 uppercase tracking-wide">
@@ -147,7 +150,13 @@ const Header = () => {
                             >
                               <div className="flex items-center space-x-3">
                                 <div className="w-2 h-2 bg-red-500 rounded-full opacity-0 group-hover/item:opacity-100 transition-opacity duration-200"></div>
-                                <span>{dropdownItem.name}</span>
+                                <span
+                                  onClick={() =>
+                                    setIsProductsDropdownOpen(false)
+                                  }
+                                >
+                                  {dropdownItem.name}
+                                </span>
                               </div>
                               <svg
                                 className="w-4 h-4 text-gray-400 group-hover/item:text-red-500 transform group-hover/item:translate-x-1 transition-all duration-200"
