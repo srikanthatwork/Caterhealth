@@ -251,7 +251,7 @@ const Header = () => {
               <div
                 className="relative"
                 onMouseEnter={() => setIsProfileDropdownOpen(true)}
-                onMouseLeave={() => setIsProfileDropdownOpen(false)}
+                // onMouseLeave={() => setIsProfileDropdownOpen(false)}
               >
                 <button className="p-3 text-gray-700 hover:text-red-600 hover:bg-red-50 rounded-xl transition-all duration-300 hover:shadow-md">
                   <User className="w-6 h-6" />
@@ -259,7 +259,10 @@ const Header = () => {
 
                 {/* Profile Dropdown Menu */}
                 {isProfileDropdownOpen && (
-                  <div className="absolute top-full right-0 mt-2 w-64 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-100 py-3 z-50">
+                  <div
+                    className="absolute top-full right-0 mt-2 w-64 bg-white/95 backdrop-blur-xl rounded-2xl shadow-2xl border border-gray-100 py-3 z-50 transform transition-all duration-200 animate-in slide-in-from-top-200"
+                    onMouseLeave={() => setIsProfileDropdownOpen(false)}
+                  >
                     <div className="px-5 py-4 border-b border-gray-100">
                       <p className="text-sm font-bold text-gray-900">
                         Your Account
@@ -271,6 +274,7 @@ const Header = () => {
 
                     <div className="py-2">
                       <Link
+                        onClick={() => setIsProfileDropdownOpen(false)}
                         to="/account"
                         className="flex items-center px-5 py-3.5 text-sm font-semibold text-gray-700 hover:bg-gradient-to-r hover:from-red-50 hover:to-red-100 hover:text-red-700 transition-all duration-200 mx-2 rounded-xl"
                       >

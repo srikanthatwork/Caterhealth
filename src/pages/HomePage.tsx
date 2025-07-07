@@ -145,7 +145,7 @@ const HomePage = () => {
         </div>
       </section> */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-12">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
               Shop by Category
@@ -155,12 +155,13 @@ const HomePage = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center">
+          {/* Grid with centered items and space-around-like behavior */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 justify-items-center">
             {categories.map((category) => (
               <Link
                 key={category.name}
                 to={category.href}
-                className="w-[240px] mx-auto bg-white rounded-xl border border-gray-200 
+                className="w-[240px] bg-white rounded-xl border border-gray-200 
                      shadow-sm hover:shadow-md transition-shadow overflow-hidden"
               >
                 {/* Top Image or Icon Block */}
@@ -226,7 +227,6 @@ const HomePage = () => {
                 style={{
                   border: "1px solid #e5e7eb",
                   borderRadius: "0.5rem",
-               
                 }}
               >
                 <div className="relative">
@@ -264,11 +264,13 @@ const HomePage = () => {
                   </div>
                   <div
                     className="flex items-center justify-between "
-                    style={{
-                      // border: "1px solid #e5e7eb",
-                      // borderRadius: "0.5rem",
-                      // padding: "1rem",
-                    }}
+                    style={
+                      {
+                        // border: "1px solid #e5e7eb",
+                        // borderRadius: "0.5rem",
+                        // padding: "1rem",
+                      }
+                    }
                   >
                     <span className="text-2xl font-bold text-red-600">
                       ₹{product.price}
@@ -284,11 +286,8 @@ const HomePage = () => {
               </div>
             ))}
           </div>
-         
         </div>
       </section>
-
-
 
       {/* CTA Section */}
       <section className="py-16 bg-red-600 text-white">
