@@ -110,7 +110,7 @@ const HomePage = () => {
       </section>
 
       {/* Category Grid */}
-      <section className="py-16 bg-gray-50">
+      {/* <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-gray-900 mb-4">
@@ -138,6 +138,68 @@ const HomePage = () => {
                 <p className="text-gray-600 mb-4">{category.description}</p>
                 <div className="flex items-center text-red-600 font-semibold">
                   Shop Now <ArrowRight className="ml-2 w-4 h-4" />
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section> */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Shop by Category
+            </h2>
+            <p className="text-xl text-gray-600">
+              Targeted solutions for your specific health needs
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center">
+            {categories.map((category) => (
+              <Link
+                key={category.name}
+                to={category.href}
+                className="w-[240px] mx-auto bg-white rounded-xl border border-gray-200 
+                     shadow-sm hover:shadow-md transition-shadow overflow-hidden"
+              >
+                {/* Top Image or Icon Block */}
+                <div className="relative">
+                  {category.image ? (
+                    <img
+                      src={category.image}
+                      alt={category.name}
+                      className="w-full h-[200px] object-cover"
+                    />
+                  ) : (
+                    <div
+                      className={`w-full h-[200px] flex items-center justify-center ${category.color}`}
+                    >
+                      {category.icon}
+                    </div>
+                  )}
+                </div>
+
+                {/* Card Content */}
+                <div className="p-4">
+                  <p className="text-sm text-gray-500 mb-1">
+                    {category.tagline}
+                  </p>
+
+                  <h3 className="text-base font-semibold text-gray-900 mb-2 leading-tight">
+                    {category.name}
+                  </h3>
+
+                  <p className="text-gray-600 text-sm mb-4">
+                    {category.description}
+                  </p>
+
+                  <button
+                    className="w-full h-10 bg-blue-100 text-blue-800 font-semibold text-sm rounded-lg
+                         hover:bg-blue-200 transition-colors"
+                  >
+                    Shop Now
+                  </button>
                 </div>
               </Link>
             ))}
@@ -270,16 +332,20 @@ const HomePage = () => {
                   </div>
 
                   {/* Price & Button */}
-                  <div className="flex items-center justify-between">
+                  <div className="flex flex-col items-start gap-3 mt-4">
                     <span className="text-xl font-bold text-red-600">
                       ₹{product.price}
                     </span>
-                    <button
-                      onClick={() => addToCart(product)}
-                      className="bg-red-600 hover:bg-red-700 text-white font-semibold text-sm py-2 px-4 rounded-lg"
-                    >
-                      Add to Cart
-                    </button>
+                    <div className="flex items-center">
+                      <button
+                        onClick={() => addToCart(product)}
+                        className="bg-red-600 hover:bg-red-700 text-white font-semibold text-sm 
+               w-[208px] h-[40px] rounded-lg mr-5"
+                      >
+                        Add to Cart
+                      </button>
+                      {/* another button or element here */}
+                    </div>
                   </div>
                 </div>
               </div>
